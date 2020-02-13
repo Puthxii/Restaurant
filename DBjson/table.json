@@ -1,0 +1,42 @@
+{ "tables": [{
+    "id": 1,
+    "number": "1",
+    "type" : "classic"
+  },
+  {
+    "id": 2,
+    "number": "2",
+    "type" : "romantic"
+  },
+  {
+    "id": 3,
+    "number": "3",
+    "type" : "Picnic-Style Banquet"
+  },
+  {
+    "id": 4,
+    "number": "4",
+    "type" : "classic"
+  },
+  {
+    "id": 5,
+    "number": "5",
+    "type" : "romantic"
+  },
+  {
+    "id": 6,
+    "number": "6",
+    "type" : "Picnic-Style Banquet"
+  },
+  {
+    "id": 7,
+    "number": "7",
+    "type" : "classic"
+  },
+  {
+    "id": 8,
+    "number": "8",
+    "type" : "romantic"
+  }
+]
+}

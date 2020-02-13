@@ -1,0 +1,17 @@
+{ "customer" : [
+    {
+    "id" : 1,
+    "name" : "Cintia",
+    "phone" : "0923156632",
+    "email" : "Cin@gmail.com",
+    "address" : {
+        "hno" : "124",
+        "subdistrict" : "Broadway",
+        "district" : "New York",
+        "province" : "YN"
+    }
+}
+    
+    
+    
+]}
