@@ -15,13 +15,9 @@ class restController
                   "address" => $value["address"],
                   "brand" => $value["brand"],
                   "picture" => empty($value["picture"])?"default.jpg": $value["picture"] 
-                ];
+               ];
                array_push($arrRest,$restData);
             }
-
-        response(200, $arrRest);
+         response(200, $arrRest);
    }
-
-  
- 
 }

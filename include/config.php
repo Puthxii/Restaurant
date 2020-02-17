@@ -1,6 +1,6 @@
 <?php
 //Database static
-define('DB_NAME', 'restaurant');
+define('DB_NAME', 'Restaurant');
 
 define('INSERT_COL_SUCCESS', 0);
 define('INSERT_COL_FAILED', 1);

@@ -238,7 +238,7 @@
       $(document).ready(function () {
         var cusId = localStorage.getItem('customerId'); 
 
-        $.post("http://localhost/DBA/getNameNumberById", {
+        $.post("http://localhost/Restaurant/getNameNumberById", {
           restId : $( "#restId" ).val(), 
           tableId : $( "#tableId" ).val()
         },function (data, textStatus, jqXHR) { 
@@ -251,7 +251,7 @@
 
         $("#form").submit(function(e){
           e.preventDefault();
-          $.post("http://localhost/DBA/insert",
+          $.post("http://localhost/Restaurant/insert",
           { restId : $( "#restId" ).val(), 
             tableId : $( "#tableId" ).val(), 
             cusId : $( "#cusId" ).val(), 

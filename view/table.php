@@ -44,7 +44,7 @@
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Home</a></li>
+              <li class="active"><a href="index.php">Home</a></li>
               <li><a href="text.html">Text page</a></li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -149,7 +149,7 @@
       search();     
 
       function search(data){
-        $.get("http://localhost/DBA/getTable", data,
+        $.get("http://localhost/Restaurant/getTable", data,
         function (data, textStatus, jqXHR) {
           renderTable(data); 
           // console.log(data);
@@ -158,7 +158,7 @@
       }
 
       function reserv(){
-        $.post("http://localhost/DBA/getReser", {"restId": <?=$id ?>, "cusId":localStorage.getItem('customerId')},
+        $.post("http://localhost/Restaurant/getReser", {"restId": <?=$id ?>, "cusId":localStorage.getItem('customerId')},
           function (data, textStatus, jqXHR) {
               $.each(data, function (i, v) { 
                  $("#pointer-"+v.tableId).css("pointer-events", "none");

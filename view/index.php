@@ -164,7 +164,7 @@
       search();     
 
       function search(data){
-        $.get("http://localhost/DBA/getRest", data,
+        $.get("http://localhost/Restaurant/getRest", data,
         function (data, textStatus, jqXHR) {
           renderTable(data); 
           // console.log(data);
