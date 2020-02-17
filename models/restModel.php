@@ -17,7 +17,7 @@ class restModel {
     }
 
     public function getNameById($id){
-        $query =  array("_id" => (int)$id );
+        $query =  array("id" => (int)$id );
         $cursor = $this->col->findOne($query);
         return $cursor;
     }

@@ -9,7 +9,7 @@ class restController
          $arrRest = [];
          foreach( $cursor as $key => $value){         
                $restData = [
-                  "id" => $value["_id"],
+                  "id" => $value["id"],
                   "name" => $value["name"],
                   "phone" => $value["phone"],
                   "address" => $value["address"],

@@ -17,7 +17,7 @@ class tableModel {
     }
 
     public function getNameById($id){
-        $query =  array("_id" => $id );
+        $query =  array("id" => $id );
         $cursor = $this->col->findOne($query);
         return $cursor;
     }

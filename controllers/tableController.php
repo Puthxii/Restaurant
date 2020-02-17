@@ -17,7 +17,7 @@ class tableController
                $tablePic = "Picnic.jpg";
             }
             $restData = [
-               "id" => $value["_id"],
+               "id" => $value["id"],
                "number" => $value["number"],
                "type" => $value["type"],
                "picture" => $tablePic
