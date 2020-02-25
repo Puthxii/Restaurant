@@ -45,7 +45,7 @@
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.php">Home</a></li>
-              <li><a href="text.html">Text page</a></li>
+              <!-- <li><a href="text.html">Text page</a></li>
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Dropdown item 1</a></li>
@@ -54,7 +54,7 @@
                   <li><a href="#">Dropdown item 4</a></li>
                 </ul>
               </li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.html">Contact</a></li> -->
             </ul><a href="#" data-toggle="modal" data-target="#login-modal" class="btn navbar-btn btn-white pull-left"><i class="fa fa-sign-in"></i>Log OUT</a>
           </div>
         </div>
