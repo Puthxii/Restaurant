@@ -104,8 +104,10 @@
     
     <input type="hidden" name="id" id="id" value="<?=$id?>">
 
+
     <section class="section--padding-bottom-small">
       <div class="container">
+        <p class="read-more" id="picktime"><a  class="btn btn-ghost">Time</a></p>
         <div class="row" id="rest"></div>
       </div>
     </section>
@@ -145,14 +147,19 @@
 
 
     $(document).ready(function () {
-      
-      search();     
+
+      $("#rest").hide();
+
+      $( "#picktime" ).click(function() {
+        search();     
+      });
 
       function search(data){
         $.get("http://localhost/Restaurant/getTable", data,
         function (data, textStatus, jqXHR) {
-          renderTable(data); 
+          $("#rest").show();
           // console.log(data);
+          renderTable(data); 
           reserv();
         });
       }
