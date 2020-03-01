@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="x.png">
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -107,6 +108,7 @@
 
     <section class="section--padding-bottom-small">
       <div class="container">
+        <input size="16" type="text" value="" readonly class="form_datetime">
         <p class="read-more" id="picktime"><a  class="btn btn-ghost">Time</a></p>
         <div class="row" id="rest"></div>
       </div>
@@ -133,6 +135,7 @@
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/lightbox.min.js"></script>
     <script src="js/front.js"></script><!-- substitute:livereload -->
+    <script src="js/bootstrap-datetimepicker.min.js?t=20130302"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
     <!---->
     <script>
@@ -147,7 +150,7 @@
 
 
     $(document).ready(function () {
-
+      $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
       $("#rest").hide();
 
       $( "#picktime" ).click(function() {

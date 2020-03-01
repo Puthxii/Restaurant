@@ -17,8 +17,10 @@ class tableModel {
     }
 
     public function getNameById($id){
-        $query =  array("id" => $id );
+        $query =  array("id" => intval($id) );
         $cursor = $this->col->findOne($query);
+        // var_dump($query);
+        // exit();
         return $cursor;
     }
 
