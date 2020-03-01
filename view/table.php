@@ -1,6 +1,7 @@
 <?php 
 
     $id = $_GET['id'];
+    $timeval;
 
 ?>
 
@@ -108,10 +109,10 @@
 
     <section class="section--padding-bottom-small">
       <div class="container">
-        <input size="16" type="text" value="" readonly class="form_datetime">
-        <p class="read-more" id="picktime"><a  class="btn btn-ghost">Time</a></p>
+        <input size="16" type="text" value="" id="datetopick" readonly class="form_datetime">
+        <button type="button" id="picktime" class="btn btn-ghost">Time</button>
         <div class="row" id="rest"></div>
-      </div>
+      </div> 
     </section>
 
     <footer class="footer">
@@ -150,52 +151,57 @@
 
 
     $(document).ready(function () {
+      
       $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-      $("#rest").hide();
+      // $("#rest").hide();
 
       $( "#picktime" ).click(function() {
-        search();     
+        $timeval = $( "#datetopick" ).val()
+        // alert($timeval);
+        gettable(); 
+            
       });
-
-      function search(data){
+      function gettable(data){
         $.get("http://localhost/Restaurant/getTable", data,
         function (data, textStatus, jqXHR) {
-          $("#rest").show();
+          // $("#rest").show();
           // console.log(data);
           renderTable(data); 
           reserv();
         });
       }
-
-      function reserv(){
-        $.post("http://localhost/Restaurant/getReser", {"restId": <?=$id ?>, "cusId":localStorage.getItem('customerId')},
-          function (data, textStatus, jqXHR) {
-              $.each(data, function (i, v) { 
-                 $("#pointer-"+v.tableId).css("pointer-events", "none");
-                 $("#pointer-"+v.tableId).css("filter", "grayscale(100%)");
-              });
-          }
-        );
-      }
-
-    
-
+   
       function renderTable(data){
         var rest = $("#rest");
+        $timeval = $( "#datetopick" ).val()
+        // alert($timeval);
         rest.empty();
         $.each(data, function (index, value) { 
           rest.append('<div class="col-sm-3">'
             +'<div class="post" id="pointer-'+value.id+'">'
               +'<div class="image"> <a href="booking.php?restId=<?=$id?>&tableId='+value.id+'"><img src="img/'+value.picture+'" alt="" class="img-responsive"></a></div>'
               +'<h3><a href="booking.php?restId=<?=$id?>&tableId='+value.id+'">'+value.number+'</a></h3>'
-              +'<p class="post__intro" ><a href="table.php?id='+value.id+'">'+value.type+'</a></p>'
-              +'<p class="read-more"><a href="booking.php?restId=<?=$id?>&tableId='+value.id+'" class="btn btn-ghost">Choose</a></p>'
+              +'<p class="post__intro" ><a href="booking.php?restId=<?=$id?>&tableId='+value.id+'">'+value.type+'</a></p>'
+              +'<p class="read-more"><a href="booking.php?restId=<?=$id?>&tableId='+value.id+'&timeval='+$timeval+'" class="btn btn-ghost">Choose</a></p>'
             +'</div>'
-
           +'</div>')
         });
-           
+      }
 
+       function reserv(){
+        $.post("http://localhost/Restaurant/getReser", {
+          "restId": <?=$id ?>, "timeval" : $timeval, 
+          "cusId":localStorage.getItem('customerId')
+        },function (data, textStatus, jqXHR) {
+              // alert($timeval);
+              console.log(data);
+              $.each(data, function (i, v) { 
+
+                //  $("#pointer-"+v.tableId).css("pointer-events", "none");
+                //  $("#pointer-"+v.tableId).css("filter", "grayscale(100%)");
+              });
+          }
+        );
       }
 
       

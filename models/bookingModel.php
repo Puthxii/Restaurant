@@ -11,11 +11,12 @@ class bookingModel {
         $this->col = new MongoCollection($this->con, "reservation");
     }
 
-    public function insert($restId , $tableId, $cusId , $date){
+    public function insert($restId , $tableId, $cusId , $timeval, $date){
         $document = [
             "restaurantId" => $restId,
             "tableId" => $tableId,
             "customerId" => $cusId,
+            "timeval" => $timeval,
             "date" => $date
         ];
         

@@ -2,7 +2,7 @@
 
     $restId = $_GET['restId'];
     $tableId = $_GET['tableId'];
-
+    $timeval = $_GET['timeval'];
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="x.png">
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -150,29 +151,36 @@
                 <form id="form">
                   <input type="hidden" name="restId" id="restId" value="<?=$restId?>">
                   <input type="hidden" name="tableId" id="tableId" value="<?=$tableId?>">
+                  <input type="hidden" name="timeval" id="timeval" value="<?=$timeval?>">
                   <input type="hidden" name="cusId" id="cusId">
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="firstname" >Restaurant : Xin lin</label>
+                        <label for="brand" >Restaurant : Xin lin</label>
                         <!-- <input id="firstname" type="text" class="form-control"> -->
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="lastname" >Branch :  <span id="restName"></span> </label>
+                        <label for="restName" >Branch :  <span id="restName"></span> </label>
                         <!-- <input id="lastname" type="text" class="form-control"> -->
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="email">Table :  <span id="tableName"></span> </label>
+                        <label for="tableName">Table :  <span id="tableName"></span> </label>
                         <!-- <input id="email" type="text" class="form-control"> -->
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="subject">Date : <?php echo date("Y-m-d")?></label>
+                        <label for="timeval">Date check : <?php echo $timeval; ?></span> </label>
+                        <!-- <input id="subject" type="text" class="form-control"> -->
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="date">Date booking : <?php echo date("yy-m-d h:i")?></label>
                         <!-- <input id="subject" type="text" class="form-control"> -->
                       </div>
                     </div>
@@ -225,6 +233,7 @@
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/lightbox.min.js"></script>
     <script src="js/front.js"></script><!-- substitute:livereload -->
+    <script src="js/bootstrap-datetimepicker.min.js?t=20130302"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
     <!---->
     <script>
@@ -246,7 +255,8 @@
             $("#restName").html(data.rest.name);
             $("#tableName").html(data.table.number+" ("+data.table.type+")");
         });
-
+        // $timeval = '<?=$timeval?>'
+        // alert($timeval);
         $("#cusId").val(cusId);
 
         $("#form").submit(function(e){
@@ -254,7 +264,8 @@
           $.post("http://localhost/Restaurant/insert",
           { restId : $( "#restId" ).val(), 
             tableId : $( "#tableId" ).val(), 
-            cusId : $( "#cusId" ).val(), 
+            cusId : $( "#cusId" ).val(),
+            timeval : $( "#timeval" ).val(),
             date : $( "#date" ).val(), 
           }, 
           function(data, status){

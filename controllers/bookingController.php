@@ -8,10 +8,11 @@ class bookingController
         $restId = $request->post('restId');
         $tableId = $request->post('tableId');
         $cusId = $request->post('cusId');
-        $date = date("Y-m-d");
+        $timeval = $request->post('timeval');
+        $date = date("yy-m-d h:i");
 
         $db = new bookingModel();
-        $result = $db->insert($restId , $tableId, $cusId , $date);
+        $result = $db->insert($restId , $tableId, $cusId , $timeval, $date);
         $arrStudent = array();
         if($result) {
             $res["error"] = FALSE;
