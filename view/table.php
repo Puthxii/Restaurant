@@ -170,7 +170,19 @@
           reserv();
         });
       }
-   
+      
+      function reserv(){
+        $.post("http://localhost/Restaurant/getReser", { "restId": <?=$id ?>, "cusId":localStorage.getItem('customerId')
+        },function (data, textStatus, jqXHR) {
+              // console.log(data);
+              $.each(data, function (i, v) { 
+                //  $("#pointer-"+v.tableId).css("pointer-events", "none");
+                //  $("#pointer-"+v.tableId).css("filter", "grayscale(100%)");
+              });
+          }
+        );
+      }
+
       function renderTable(data){
         var rest = $("#rest");
         $timeval = $( "#datetopick" ).val()
@@ -187,22 +199,8 @@
           +'</div>')
         });
       }
-
-       function reserv(){
-        $.post("http://localhost/Restaurant/getReser", {
-          "restId": <?=$id ?>, "timeval" : $timeval, 
-          "cusId":localStorage.getItem('customerId')
-        },function (data, textStatus, jqXHR) {
-              // alert($timeval);
-              console.log(data);
-              $.each(data, function (i, v) { 
-
-                //  $("#pointer-"+v.tableId).css("pointer-events", "none");
-                //  $("#pointer-"+v.tableId).css("filter", "grayscale(100%)");
-              });
-          }
-        );
-      }
+      // "timeval" : $timeval,
+     
 
       
 

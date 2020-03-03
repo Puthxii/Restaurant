@@ -16,6 +16,7 @@ class reserController
                 "restaurantId" => $value["restaurantId"],
                 "tableId" => $value["tableId"],
                 "customerId" => $value["customerId"],
+                "timeval" => $value["timeval"],
                 "date" => $value["date"]
             ];
             array_push($arrRest,$restData);
